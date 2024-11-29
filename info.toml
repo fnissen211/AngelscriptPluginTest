@@ -1,0 +1,9 @@
+[meta]
+version = "1.0"         # Plugin version
+name = "TestPlugin"        # Name of plugin
+author = "Fnissen2"        # Name of author
+category = ""       # Needs to be added
+description = "This is a test plugin"       # Description of plugin
+
+[compatibility]
+game = "trackmania"         # Which trackmania game 
