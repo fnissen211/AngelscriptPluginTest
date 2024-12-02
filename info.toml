@@ -1,9 +1,44 @@
-[meta]
-version = "1.0"         # Plugin version
-name = "TestPlugin"        # Name of plugin
-author = "Fnissen2"        # Name of author
-category = ""       # Needs to be added
-description = "This is a test plugin"       # Description of plugin
+# https://openplanet.dev/docs/reference/info-toml
 
-[compatibility]
-game = "trackmania"         # Which trackmania game 
+[meta]
+# Required: The meta table contains metadata about the plugin.
+version = "1.0"
+name = "Test Plugin"
+authors = "Test Author"
+category = "plugin"
+# Blocks = (different blocks in the plugin)
+description = "A brief description of your package"
+license = "Test License"
+
+[game]
+# Optional: Add here the game version that the plugin is compatible with
+
+# min_version
+# max_version
+
+[script]
+# Optional: [script] table configures the script runtime for the plugin.
+
+# timeout -> integer: The timeout time for callback execution in milliseconds. 
+#   Set this to 0 to disable the timeout, which will also remove the overhead 
+#   of keeping track of execution time. When disabled, the plugin can potentially 
+#   cause infinite loops when coded incorrectly. It's recommended to set this to 0 
+#   only if you need a bit more performance and if you're certain you're not causing 
+#   infinite loops. Sometimes loading big fonts or textures can cause script 
+#   timeouts as well, in which case this value can be increased or set to 0.
+
+# imports -> array of strings: The list of modules that the plugin can import.
+
+# exports
+
+# shared exports
+
+# dependencies
+
+# export_dependencies
+
+# optional_dependencies
+
+# defines
+
+# module
