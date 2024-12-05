@@ -1,7 +1,8 @@
 class DrawBox {
+    
     // Setup for class
     vec2 boxPosition = vec2(100, 100); // Initial position of the box
-    vec2 boxSize = vec2(200, 50);      // Size of the box
+    vec2 boxSize = vec2(200, 100);      // Size of the box
     bool isDragging = false;           // Is the box being dragged?
     vec2 dragOffset = vec2(0, 0);      // Offset between mouse position and box corner
 
@@ -23,14 +24,15 @@ class DrawBox {
         nvg::Fill();
 
         // Draw the text
-        nvg::FontSize(12.0);
+        nvg::FontSize(15.0);
         nvg::FillColor(vec4(1, 1, 1, 1)); // White text
         nvg::TextAlign(nvg::Align::Center | nvg::Align::Middle);
-        nvg::Text(boxPosition.x + 10, boxPosition.y + 10, getPlayerInfo.GetName());
-        nvg::Text(boxPosition.x + 10, boxPosition.y + 30, getMapInfo.GetMapName());
-        nvg::Text(boxPosition.x + 10, boxPosition.y + 50, getMapInfo.GetMapBronzeMedal());
-        nvg::Text(boxPosition.x + 10, boxPosition.y + 70, getMapInfo.GetMapSilverMedal());
-        nvg::Text(boxPosition.x + 10, boxPosition.y + 90, getMapInfo.GetMapGoldMedal());
+        nvg::Text(boxPosition.x + 100, boxPosition.y + 10, getMapInfo.GetMapName());
+        // nvg::Text(boxPosition.x + 100, boxPosition.y + 30, getPlayerInfo.GetMapHighscore());
+        nvg::Text(boxPosition.x + 100, boxPosition.y + 30, getMapInfo.GetMapAuthorMedal());
+        nvg::Text(boxPosition.x + 100, boxPosition.y + 50, getMapInfo.GetMapGoldMedal());
+        nvg::Text(boxPosition.x + 100, boxPosition.y + 70, getMapInfo.GetMapSilverMedal());
+        nvg::Text(boxPosition.x + 100, boxPosition.y + 90, getMapInfo.GetMapBronzeMedal());
 
         vec2 mousePos = UI::GetMousePos();
 

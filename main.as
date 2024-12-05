@@ -4,22 +4,30 @@ GetPlayerInfo@ getPlayerInfo;
 void Main() {
     @drawBox = DrawBox();
 
-    // Initialize GetPlayerInfo and GetMapInfo only if necessary dependencies are available
-    auto app = cast<CGameManiaPlanet>(GetApp());  // Ensure app is initialized
+    auto app = cast<CGameManiaPlanet>(GetApp());
     if (app is null) {
         print("App is null");
-        return;  // Don't proceed further if the app is not initialized
+        return;
     }
 
     @getPlayerInfo = GetPlayerInfo();
     if (getPlayerInfo is null) {
         print("GetPlayerInfo failed to initialize");
-        return;  // Skip further initialization if GetPlayerInfo failed
+        return;
     }
 
 }
 
 void Render() {
-    // Gets called every frame
-    drawBox.Render();
+        auto app = cast<CGameManiaPlanet>(GetApp());
+        auto playground = app.CurrentPlayground;
+        
+        if (playground is null) {
+            print("CurrentPlayground is null");
+            return;
+        } else {
+            drawBox.Render();
+        }
+
+
 }

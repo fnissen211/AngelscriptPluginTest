@@ -1,4 +1,6 @@
 class GetMapInfo {
+    TimeModel@ timeModel;
+
     CGameCtnChallenge@ GetChallenge() {
         auto app = cast<CGameManiaPlanet>(GetApp());
         if (app is null) {
@@ -33,33 +35,49 @@ class GetMapInfo {
     string GetMapName() {
         auto challenge = GetChallenge();
         if (challenge is null) {
-            return "";  // Fallback if challenge is null
+            return "N/A";  // Fallback if challenge is null
         }
         return "Map Name: " + challenge.MapName;
     }
 
     string GetMapBronzeMedal() {
+        @timeModel = TimeModel();
         auto challenge = GetChallenge();
         if (challenge is null) {
-            return "";  // Fallback if challenge is null
+            return "N/A";
         }
-        return "Bronze Medal: " + Text::Format("%d", challenge.TMObjective_BronzeTime);
+
+        return "Bronze Medal: " + timeModel.FormatTime(challenge.TMObjective_BronzeTime);
     }
 
     string GetMapSilverMedal() {
+        @timeModel = TimeModel();
         auto challenge = GetChallenge();
         if (challenge is null) {
-            return "";  // Fallback if challenge is null
+            return "N/A";
         }
-        return "Silver Medal: " + Text::Format("%d", challenge.TMObjective_SilverTime);
+
+        return "Silver Medal: " + timeModel.FormatTime(challenge.TMObjective_SilverTime);
     }
 
     string GetMapGoldMedal() {
+        @timeModel = TimeModel();
         auto challenge = GetChallenge();
         if (challenge is null) {
-            return "";  // Fallback if challenge is null
+            return "N/A";
         }
-        return "Gold Medal: " + Text::Format("%d", challenge.TMObjective_GoldTime);
+
+        return "Gold Medal: " + timeModel.FormatTime(challenge.TMObjective_GoldTime);
+    }
+
+    string GetMapAuthorMedal() {
+        @timeModel = TimeModel();
+        auto challenge = GetChallenge();
+        if (challenge is null) {
+            return "N/A";
+        }
+
+        return "Author Medal: " + timeModel.FormatTime(challenge.TMObjective_AuthorTime);
     }
 
 }
