@@ -5,7 +5,17 @@ class DrawBox {
     bool isDragging = false;           // Is the box being dragged?
     vec2 dragOffset = vec2(0, 0);      // Offset between mouse position and box corner
 
+    // UserInfo
+    GetPlayerInfo@ getPlayerInfo;
+
+    // MapInfo
+    GetMapInfo@ getMapInfo;
+
     void Render() {
+        // Initialize player
+        @getPlayerInfo = GetPlayerInfo();
+        @getMapInfo = GetMapInfo();
+
         // Draw the box
         nvg::BeginPath();
         nvg::Rect(boxPosition.x, boxPosition.y, boxSize.x, boxSize.y);
@@ -13,10 +23,14 @@ class DrawBox {
         nvg::Fill();
 
         // Draw the text
-        nvg::FontSize(20.0);
+        nvg::FontSize(12.0);
         nvg::FillColor(vec4(1, 1, 1, 1)); // White text
         nvg::TextAlign(nvg::Align::Center | nvg::Align::Middle);
-        nvg::Text(boxPosition.x + boxSize.x / 2, boxPosition.y + boxSize.y / 2, "Drag Me!");
+        nvg::Text(boxPosition.x + 10, boxPosition.y + 10, getPlayerInfo.GetName());
+        nvg::Text(boxPosition.x + 10, boxPosition.y + 30, getMapInfo.GetMapName());
+        nvg::Text(boxPosition.x + 10, boxPosition.y + 50, getMapInfo.GetMapBronzeMedal());
+        nvg::Text(boxPosition.x + 10, boxPosition.y + 70, getMapInfo.GetMapSilverMedal());
+        nvg::Text(boxPosition.x + 10, boxPosition.y + 90, getMapInfo.GetMapGoldMedal());
 
         vec2 mousePos = UI::GetMousePos();
 
