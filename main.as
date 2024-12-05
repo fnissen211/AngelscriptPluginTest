@@ -5,5 +5,6 @@ void Main() {
 }
 
 void Render() {
+    // gets called every frame
     drawBox.Render();
 }
