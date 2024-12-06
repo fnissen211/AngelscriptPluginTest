@@ -28,6 +28,4 @@ void Render() {
         } else {
             drawBox.Render();
         }
-
-
 }

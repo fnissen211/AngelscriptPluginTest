@@ -21,11 +21,6 @@ class GetPlayerInfo {
     //         return "N/A";
     //     }
 
-    //     print("Highscore: " + highScore.Score);
-    //     print("Highscore: " + highScore.Count);
-    //     print("Highscore: " + highScore.Rank);
-    //     print("Highscore: " + highScore.Medal);
-
     //     return "Pers. Best: " + timeModel.FormatTime(highScore.Time);
     // }
 }

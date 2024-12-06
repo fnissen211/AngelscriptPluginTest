@@ -17,6 +17,9 @@ class DrawBox {
         @getPlayerInfo = GetPlayerInfo();
         @getMapInfo = GetMapInfo();
 
+        vec2 mousePos = UI::GetMousePos();
+
+
         // Draw the box
         nvg::BeginPath();
         nvg::Rect(boxPosition.x, boxPosition.y, boxSize.x, boxSize.y);
@@ -34,7 +37,6 @@ class DrawBox {
         nvg::Text(boxPosition.x + 100, boxPosition.y + 70, getMapInfo.GetMapSilverMedal());
         nvg::Text(boxPosition.x + 100, boxPosition.y + 90, getMapInfo.GetMapBronzeMedal());
 
-        vec2 mousePos = UI::GetMousePos();
 
         // Handle mouse released event (stop dragging)
         if (UI::IsMouseReleased(UI::MouseButton::Left)) {
